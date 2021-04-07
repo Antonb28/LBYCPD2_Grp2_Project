@@ -22,14 +22,14 @@
             </DropShadow>
          </effect>
          <children>
-            <PasswordField layoutX="129.0" layoutY="207.0" prefHeight="34.0" prefWidth="198.0" promptText="Password" style="-fx-background-radius: 20;" />
-            <TextField layoutX="128.0" layoutY="166.0" prefHeight="32.0" prefWidth="198.0" promptText="Username" style="-fx-background-radius: 20;" />
+            <PasswordField fx:id="Password" layoutX="129.0" layoutY="207.0" prefHeight="34.0" prefWidth="198.0" promptText="Password" style="-fx-background-radius: 20;" />
+            <TextField fx:id="Username" layoutX="128.0" layoutY="166.0" prefHeight="32.0" prefWidth="198.0" promptText="Username" style="-fx-background-radius: 20;" />
             <Label layoutX="108.0" layoutY="16.0" text="Register">
                <font>
                   <Font name="Avenir Book" size="36.0" />
                </font>
             </Label>
-            <Button layoutX="77.0" layoutY="494.0" mnemonicParsing="false" onAction="#Register" prefHeight="51.0" prefWidth="198.0" style="-fx-background-color: #95D8EB #95D8EB; -fx-background-radius: 40;" text="Register" textFill="WHITE">
+            <Button layoutX="77.0" layoutY="494.0" mnemonicParsing="false" onAction="#RegisterAction" prefHeight="51.0" prefWidth="198.0" style="-fx-background-color: #95D8EB #95D8EB; -fx-background-radius: 40;" text="Register" textFill="WHITE">
                <font>
                   <Font name="Avenir Book" size="16.0" />
                </font></Button>
@@ -43,7 +43,7 @@
                   <Font name="Avenir Book" size="16.0" />
                </font>
             </Label>
-            <TextField layoutX="128.0" layoutY="84.0" prefHeight="32.0" prefWidth="198.0" promptText="First Name" style="-fx-background-radius: 20;" />
+            <TextField fx:id="FirstName" layoutX="128.0" layoutY="84.0" prefHeight="32.0" prefWidth="198.0" promptText="First Name" style="-fx-background-radius: 20;" />
             <Label layoutX="25.0" layoutY="88.0" text="First Name">
                <font>
                   <Font name="Avenir Book" size="16.0" />
@@ -54,14 +54,14 @@
                   <Font name="Avenir Book" size="16.0" />
                </font>
             </Label>
-            <TextField layoutX="128.0" layoutY="125.0" prefHeight="32.0" prefWidth="198.0" promptText="Last Name" style="-fx-background-radius: 20;" />
-            <PasswordField layoutX="129.0" layoutY="249.0" prefHeight="34.0" prefWidth="198.0" promptText="Re-enter Password" style="-fx-background-radius: 20;" />
+            <TextField fx:id="LastName" layoutX="128.0" layoutY="125.0" prefHeight="32.0" prefWidth="198.0" promptText="Last Name" style="-fx-background-radius: 20;" />
+            <PasswordField fx:id="ReenterPassword" layoutX="129.0" layoutY="249.0" prefHeight="34.0" prefWidth="198.0" promptText="Re-enter Password" style="-fx-background-radius: 20;" />
             <Label layoutX="25.0" layoutY="254.0" text="Re-enter Pass">
                <font>
                   <Font name="Avenir Book" size="16.0" />
                </font>
             </Label>
-            <PasswordField layoutX="129.0" layoutY="291.0" prefHeight="34.0" prefWidth="198.0" promptText="Birthday" style="-fx-background-radius: 20;" />
+            <PasswordField fx:id="Birthdate" layoutX="129.0" layoutY="291.0" prefHeight="34.0" prefWidth="198.0" promptText="Birthday" style="-fx-background-radius: 20;" />
             <Label layoutX="27.0" layoutY="296.0" text="Birthday">
                <font>
                   <Font name="Avenir Book" size="16.0" />
@@ -72,19 +72,19 @@
                   <Font size="12.0" />
                </font>
             </Label>
-            <PasswordField layoutX="129.0" layoutY="333.0" prefHeight="34.0" prefWidth="197.0" promptText="Email" style="-fx-background-radius: 20;" />
+            <PasswordField fx:id="Email" layoutX="129.0" layoutY="333.0" prefHeight="34.0" prefWidth="197.0" promptText="Email" style="-fx-background-radius: 20;" />
             <Label layoutX="27.0" layoutY="338.0" text="Email">
                <font>
                   <Font name="Avenir Book" size="16.0" />
                </font>
             </Label>
-            <PasswordField layoutX="129.0" layoutY="374.0" prefHeight="34.0" prefWidth="198.0" promptText="Contact Number" style="-fx-background-radius: 20;" />
+            <PasswordField fx:id="Number" layoutX="129.0" layoutY="374.0" prefHeight="34.0" prefWidth="198.0" promptText="Contact Number" style="-fx-background-radius: 20;" />
             <Label layoutX="27.0" layoutY="379.0" text="Contact No.">
                <font>
                   <Font name="Avenir Book" size="16.0" />
                </font>
             </Label>
-            <TextArea layoutX="129.0" layoutY="415.0" prefHeight="48.0" prefWidth="197.0" promptText="Address" />
+            <TextArea fx:id="Address" layoutX="129.0" layoutY="415.0" prefHeight="48.0" prefWidth="197.0" promptText="Address" />
             <Label layoutX="28.0" layoutY="427.0" text="Address">
                <font>
                   <Font name="Avenir Book" size="16.0" />
