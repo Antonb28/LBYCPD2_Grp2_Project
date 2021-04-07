@@ -1,10 +1,12 @@
 package Controllers;
 
+import com.firebase.client.Firebase;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import javafx.event.ActionEvent;
+
 
 public class LogIn {
     @FXML
@@ -24,7 +26,6 @@ public class LogIn {
     public void Register(ActionEvent actionEvent){
         //for this part put the pop up box?? to confirm if all info is correct
         LogInScreen();
-
     }
 
     public void RegisterScreen(ActionEvent actionEvent) {

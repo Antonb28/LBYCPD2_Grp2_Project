@@ -2,6 +2,7 @@
   <library name="firebase-client-android-2.5.2">
     <CLASSES>
       <root url="jar://$USER_HOME$/Downloads/firebase-client-android-2.5.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/2. firebase-client-android-2.5.2.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
