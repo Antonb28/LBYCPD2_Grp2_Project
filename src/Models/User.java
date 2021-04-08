@@ -1,10 +1,14 @@
 package Models;
 
 public class User {
-    
-    String firstName, lastName, username, password, reenterPass, birthday, email, contactNumber, address;
 
-    public User(String firstName, String lastName, String username, String password, String reenterPass, String birthday, String email, String contactNumber, String address) {
+    String firstName, lastName, username, password, reenterPass, birthday, email, contactNumber, address, gender, condition;
+
+    public User() {
+
+    }
+
+    public User(String firstName, String lastName, String username, String password, String reenterPass, String birthday, String email, String contactNumber, String address, String gender, String condition) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -14,6 +18,8 @@ public class User {
         this.email = email;
         this.contactNumber = contactNumber;
         this.address = address;
+        this.gender = gender;
+        this.condition = condition;
     }
 
     public String getFirstName() {
@@ -87,4 +93,21 @@ public class User {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
+    }
+
 }
