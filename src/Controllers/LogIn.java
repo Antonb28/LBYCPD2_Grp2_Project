@@ -4,6 +4,7 @@ import Models.User;
 import com.firebase.client.Firebase;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -20,29 +21,66 @@ public class LogIn {
     @FXML
     AnchorPane LogIn, Register, UserInfo;
     @FXML
-    TextField FirstName, LastName, Username, Birthdate, Email, Number, Gender;
+    TextField UsernameLogin, PasswordLogin, FirstName, LastName, Username, Birthdate, Email, Number, Gender;
     @FXML
     TextArea Address, Conditions;
     @FXML
     PasswordField Password, ReenterPassword;
     @FXML
+    public Label Error1;
+    public Label Error2;
+    public Label Error3;
+    public Label Error4;
     public Button Next;
     int count = 0;
 
+    public void LogInAction(ActionEvent actionEvent) {
+        if(UsernameLogin.getText().isEmpty() || PasswordLogin.getText().isEmpty()) {
+            Error4.setVisible(true);
+        }
+        else {
+            Error4.setVisible(false);
+        }
+     }
+
     public void RegisterAction(ActionEvent actionEvent){
-        Reset();
-        Write();
+        if(Birthdate.getText().isEmpty() || Gender.getText().isEmpty() || Email.getText().isEmpty() || Number.getText().isEmpty() || Address.getText().isEmpty() || Conditions.getText().isEmpty()) {
+            Error2.setVisible(true);
+        }
+        else {
+            Error2.setVisible(false);
+            Reset();
+            Write();
+        }
     }
 
     public void Next(ActionEvent actionEvent){
-        TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1),Register);
-        translateTransition.setByX(-380);
-        translateTransition.play();
-        TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(1),UserInfo);
-        translateTransition2.setByX(-380);
-        translateTransition2.play();
-        Next.setDisable(true);
-        count = 1;
+        if(FirstName.getText().isEmpty() || LastName.getText().isEmpty() || Username.getText().isEmpty() || Password.getText().isEmpty() || ReenterPassword.getText().isEmpty()) {
+            // please enter all fields
+            Error1.setVisible(true);
+            // passwords do not match
+            Error3.setVisible(false);
+        }
+
+        else if(!Password.getText().equals(ReenterPassword.getText())) {
+            // passwords do not match
+            Error3.setVisible(true);
+            // please enter all fields
+            Error1.setVisible(false);
+        }
+
+        else {
+            Error1.setVisible(false);
+            Error3.setVisible(false);
+            TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1), Register);
+            translateTransition.setByX(-380);
+            translateTransition.play();
+            TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(1), UserInfo);
+            translateTransition2.setByX(-380);
+            translateTransition2.play();
+            Next.setDisable(true);
+            count = 1;
+        }
     }
 
     public void Back(ActionEvent actionEvent){
