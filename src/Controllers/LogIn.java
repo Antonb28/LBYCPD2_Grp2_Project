@@ -35,22 +35,17 @@ public class LogIn {
     int count = 0;
 
     public void LogInAction(ActionEvent actionEvent) {
-        if(UsernameLogin.getText().isEmpty() || PasswordLogin.getText().isEmpty()) {
-            Error4.setVisible(true);
-        }
-        else {
-            Error4.setVisible(false);
-        }
+        if(UsernameLogin.getText().isEmpty() || PasswordLogin.getText().isEmpty()) Error4.setVisible(true);
+        else Error4.setVisible(false);
      }
 
     public void RegisterAction(ActionEvent actionEvent){
-        if(Birthdate.getText().isEmpty() || Gender.getText().isEmpty() || Email.getText().isEmpty() || Number.getText().isEmpty() || Address.getText().isEmpty() || Conditions.getText().isEmpty()) {
+        if(Birthdate.getText().isEmpty() || Gender.getText().isEmpty() || Email.getText().isEmpty() || Number.getText().isEmpty()) {
             Error2.setVisible(true);
-        }
-        else {
-            Error2.setVisible(false);
-            Reset();
+        } else {
             Write();
+            Reset();
+            Clear();
         }
     }
 
@@ -95,9 +90,10 @@ public class LogIn {
             translateTransition2.play();
             count = 0;
         }
-        else{
+        else {
             Reset();
         }
+        Clear();
     }
 
     public void RegisterScreen(ActionEvent actionEvent) {
@@ -133,10 +129,27 @@ public class LogIn {
         model.setBirthday(Birthdate.getText());
         model.setContactNumber(Number.getText());
         model.setEmail(Email.getText());
-        model.setAddress(Address.getText());
-//        model.setGender(Gender.getText());
-//        model.setCondition(Conditions.getText());
+//        model.setAddress(Address.getText().replaceAll("\n", System.getProperty("line.separator")));
+        model.setGender(Gender.getText());
+//        model.setCondition(Conditions.getText().replaceAll("\n", System.getProperty("line.separator")));
         firebase.child("User").push().setValue(model);
+    }
+
+    private void Clear(){
+        Error1.setVisible(false);
+        Error2.setVisible(false);
+        Error3.setVisible(false);
+        Error4.setVisible(false);
+        FirstName.clear();
+        LastName.clear();
+        Username.clear();
+        Password.clear();
+        ReenterPassword.clear();
+        Birthdate.clear();
+        Email.clear();
+        Gender.clear();
+        Address.setText(" ");
+        Conditions.setText(" ");
     }
 }
 
