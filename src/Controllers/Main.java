@@ -32,6 +32,20 @@ public class Main extends Application {
         }
     }
 
+    private void MainMenuWindow() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/MainMenu.fxml"));
+            AnchorPane pane = loader.load();
+
+            Scene scene = new Scene(pane);
+            loginstage.setScene(scene);
+            loginstage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
     public static void main(String[] args) {
