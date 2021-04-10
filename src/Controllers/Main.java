@@ -16,9 +16,10 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         this.loginstage=primaryStage;
         LoginWindow();
+//        MainMenuWindow();
     }
 
-    private void LoginWindow() {
+    public void LoginWindow() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/LogIn.fxml"));
             AnchorPane pane = loader.load();
@@ -32,7 +33,7 @@ public class Main extends Application {
         }
     }
 
-    private void MainMenuWindow() {
+    public void MainMenuWindow() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML Files/MainMenu.fxml"));
             AnchorPane pane = loader.load();
