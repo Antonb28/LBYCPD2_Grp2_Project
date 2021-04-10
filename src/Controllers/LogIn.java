@@ -1,7 +1,10 @@
 package Controllers;
 
 import Models.User;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -31,12 +34,47 @@ public class LogIn {
     public Label Error2;
     public Label Error3;
     public Label Error4;
+    public Label Error5;
     public Button Next;
     int count = 0;
+    int returnValue;
 
     public void LogInAction(ActionEvent actionEvent) {
-        if(UsernameLogin.getText().isEmpty() || PasswordLogin.getText().isEmpty()) Error4.setVisible(true);
-        else Error4.setVisible(false);
+        if(UsernameLogin.getText().isEmpty() || PasswordLogin.getText().isEmpty()) {
+            Error5.setVisible(false);
+            Error4.setVisible(true);
+        }
+        else {
+            Error4.setVisible(false);
+            Firebase firebase = new Firebase("https://lbycpd2-grp2-default-rtdb.firebaseio.com/");
+            firebase.child("User").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    returnValue = 0;
+                    for(DataSnapshot data: dataSnapshot.getChildren()) {
+                        User user = data.getValue(User.class);
+                        if(UsernameLogin.getText().equals(user.getUsername()) && PasswordLogin.getText().equals(user.getPassword())) {
+                            returnValue = 1;
+                        }
+                    }
+                    if(returnValue == 1) {
+                        // there is no existing user
+                        Error5.setVisible(false);
+                        System.out.println("Found in Database"); // initial code -- to be changec with codes for logging in to main
+                    }
+                    else if(returnValue == 0) {
+                        Error4.setVisible(false);
+                        // there is no existing user
+                        Error5.setVisible(true);
+                    }
+                }
+
+                @Override
+                public void onCancelled(FirebaseError firebaseError) {
+
+                }
+            });
+        }
      }
 
     public void RegisterAction(ActionEvent actionEvent){
